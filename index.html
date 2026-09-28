@@ -1,0 +1,856 @@
+<!doctype html>
+<html lang="en" data-season="warm">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Wren Heating &amp; Air — Pellam County (portfolio demo)</title>
+  <meta name="description" content="Wren Heating & Air is a fictional residential heating and air company in fictional Pellam County, built as a portfolio demonstration. Quick when it can't wait. Clear when it can.">
+  <meta name="robots" content="noindex">
+  <meta name="color-scheme" content="light">
+  <meta name="theme-color" content="#FBFBF8">
+  <link rel="icon" href="data:,">
+  <link rel="preload" href="fonts/bricolage-grotesque-latin-wght.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/radio-canada-big-latin-wght.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="css/styles.css">
+  <script>
+    /* Set the season before first paint so the page never flips on load. Device date only. */
+    (function () {
+      var m = new Date().getMonth() + 1;
+      var s = (m >= 4 && m <= 9) ? 'warm' : 'cold';
+      var shoulder = (m === 4 || m === 10);
+      var d = document.documentElement;
+      try {
+        var chosen = sessionStorage.getItem('wren-season');
+        if (chosen === 'warm' || chosen === 'cold') { s = chosen; shoulder = false; }
+      } catch (e) {}
+      d.setAttribute('data-season', s);
+      d.setAttribute('data-shoulder', shoulder ? 'true' : 'false');
+      d.classList.add('js');
+    })();
+  </script>
+</head>
+<body>
+
+<svg class="sprite" aria-hidden="true" focusable="false">
+  <symbol id="i-phone" viewBox="0 0 24 24"><path d="M6.6 3.5h2.6l1.4 4.1-1.9 1.3a11 11 0 0 0 6.4 6.4l1.3-1.9 4.1 1.4v2.6a2 2 0 0 1-2.1 2A15.8 15.8 0 0 1 4.6 5.6a2 2 0 0 1 2-2.1Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></symbol>
+  <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+  <symbol id="i-close" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+  <symbol id="i-exit" viewBox="0 0 24 24"><path d="M13 4H6.5A1.5 1.5 0 0 0 5 5.5v13A1.5 1.5 0 0 0 6.5 20H13M10 12h10m-3.5-3.5L20 12l-3.5 3.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-copy" viewBox="0 0 24 24"><path d="M9 9h10v11H9zM5 15V4h10" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></symbol>
+  <symbol id="i-print" viewBox="0 0 24 24"><path d="M7 9V4h10v5M7 17H4v-7h16v7h-3M7 14h10v6H7z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></symbol>
+  <symbol id="i-send" viewBox="0 0 24 24"><path d="M5 12h13m-5-5 5 5-5 5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-down" viewBox="0 0 24 24"><path d="M12 5v13m-5-5 5 5 5-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 6v12M6 12h12" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></symbol>
+  <symbol id="i-minus" viewBox="0 0 24 24"><path d="M6 12h12" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></symbol>
+  <symbol id="i-alert" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 7.5v5.5M12 16.2v.3" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></symbol>
+  <symbol id="i-ring" viewBox="0 0 200 80" preserveAspectRatio="none"><path d="M64 10C101 2 166 1 187 22c16 17-4 41-49 50-45 9-112 8-130-14C-4 42 16 18 56 10c22-4 49-5 74-1" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" vector-effect="non-scaling-stroke"/></symbol>
+</svg>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-header">
+<p class="demo-strip">
+  <span class="wrap"><strong>Portfolio demo.</strong> <span class="demo-strip__long">Wren Heating &amp; Air is a fictional company. Names, numbers, places and reviews are samples.</span><span class="demo-strip__short">Fictional company · sample content.</span></span>
+</p>
+
+<div class="binding">
+  <div class="wrap binding__inner">
+    <a class="wordmark" href="#top" aria-label="Wren Heating and Air, back to top">
+      <span class="wordmark__name">Wren</span>
+      <span class="wordmark__trade">Heating &amp; Air</span>
+    </a>
+
+    <nav class="site-nav" id="site-nav" aria-label="Main">
+      <ul>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#replacement">Replacement</a></li>
+        <li><a href="#tune-ups">Tune-ups</a></li>
+        <li><a href="#area">Service area</a></li>
+        <li><a href="#faq">FAQ</a></li>
+      </ul>
+    </nav>
+
+    <div class="binding__tools">
+      <div class="season-tabs" role="group" aria-label="Season shown on the page">
+        <button type="button" class="season-tab" data-season-set="warm" aria-pressed="true">Warm<span class="season-tab__more"> season</span></button>
+        <button type="button" class="season-tab" data-season-set="cold" aria-pressed="false">Cold<span class="season-tab__more"> season</span></button>
+      </div>
+      <a class="btn btn--pen btn--compact binding__call" href="tel:+15555550163">
+        <svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg>
+        <span>(555) 555-0163</span>
+      </a>
+      <button type="button" class="menu-toggle" aria-expanded="false" aria-controls="site-nav">
+        <svg class="icon icon--open" aria-hidden="true"><use href="#i-menu"/></svg>
+        <svg class="icon icon--close" aria-hidden="true"><use href="#i-close"/></svg>
+        <span class="visually-hidden">Menu</span>
+      </button>
+    </div>
+  </div>
+</div>
+</header>
+
+<main id="main">
+
+  <!-- ============ THE SEASON PAGE: hero + Comfort Brief share one field ============ -->
+  <div class="season-page" id="top">
+    <div class="season-flip" aria-hidden="true"></div>
+
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="wrap hero__grid">
+        <p class="season-word" aria-hidden="true">
+          <span class="season-word__warm">Summer</span>
+          <span class="season-word__cold">Winter</span>
+        </p>
+
+        <div class="hero__intro">
+          <h1 id="hero-title" class="hero__title">Quick when it can’t wait. Clear when it can.</h1>
+          <p class="hero__lead">Residential heating and air for Pellam County.</p>
+          <p class="hero__shoulder">
+            <span class="for-warm">Summer is close. It’s a good time for a cooling tune-up, before you need the AC.</span>
+            <span class="for-cold">Winter is close. It’s a good time for a heating tune-up, before the first cold night.</span>
+          </p>
+        </div>
+
+        <div class="hero__squares">
+          <section class="square square--today" aria-labelledby="today-title">
+            <h2 id="today-title" class="square__label">
+              <span class="ringed">
+                <svg class="ring" aria-hidden="true" preserveAspectRatio="none"><use href="#i-ring"/></svg>
+                <span>Today<span class="today-date" data-today></span></span>
+              </span>
+            </h2>
+            <p class="square__lines" data-season-sort>
+              <span data-order-warm="1" data-order-cold="2">No cooling?</span>
+              <span data-order-warm="2" data-order-cold="1">No heat?</span>
+              <span data-order-warm="3" data-order-cold="3">Something seems unsafe?</span>
+            </p>
+            <a class="btn btn--today" href="tel:+15555550163">
+              <svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg>
+              <span>Call (555) 555-0163</span>
+            </a>
+            <p class="square__safety">
+              <a href="#safety">
+                <svg class="icon" aria-hidden="true"><use href="#i-exit"/></svg>
+                <span>Gas smell, CO alarm or smoke? Get out first.</span>
+              </a>
+            </p>
+          </section>
+
+          <section class="square square--later" aria-labelledby="later-title">
+            <h2 id="later-title" class="square__label">Later</h2>
+            <p class="square__lines square__lines--later">Planning a replacement, a heat pump or a tune-up?</p>
+            <a class="btn btn--pencil" href="#request" data-need="">Request a visit</a>
+            <p class="square__more">
+              <a href="#brief">
+                <span>Not sure which? Tell us how the house feels</span>
+                <svg class="icon" aria-hidden="true"><use href="#i-down"/></svg>
+              </a>
+            </p>
+          </section>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ HOW'S THE HOUSE? — the Comfort Brief ============ -->
+    <section class="brief" id="brief" aria-labelledby="brief-title">
+      <div class="wrap">
+
+        <details class="rail" id="rail">
+          <summary class="rail__summary">
+            <svg class="icon" aria-hidden="true"><use href="#i-exit"/></svg>
+            <span><strong>Gas smell, CO alarm, smoke or sparks?</strong> Stop here: get out, then call 911 or your gas utility.</span>
+            <span class="rail__more" aria-hidden="true"><span class="rail__more-closed">What to do</span><span class="rail__more-open">Hide</span></span>
+          </summary>
+          <div class="rail__body">
+            <ul class="danger-list">
+              <li><strong>Smell of gas.</strong> Leave the home now. Don’t switch lights or appliances on or off, don’t use flames, and don’t use a phone inside. From outside and away from the house, call the gas utility’s emergency line or 911. Only then contact an HVAC company.</li>
+              <li><strong>Carbon monoxide alarm, or people feeling unwell (headache, dizziness, nausea) while heating is running.</strong> Get everyone, including pets, outside into fresh air. Call 911. Don’t go back in until emergency responders say it’s safe. Then contact an HVAC company.</li>
+              <li><strong>Smoke, burning smell, fire, or sparking from equipment.</strong> Leave the home and call 911. Then contact an HVAC company.</li>
+              <li><strong>Anyone becoming unwell from heat or cold.</strong> Get them to a cooler or warmer safe place and contact medical help or 911 as needed. Then call about the system.</li>
+            </ul>
+            <p><a href="#safety">More safety guidance, including what’s safe to check</a></p>
+          </div>
+        </details>
+
+        <div class="brief__grid">
+          <div class="brief__questions">
+            <h2 id="brief-title" class="brief__title">How’s the house?</h2>
+            <p class="brief__lead">Tell us how it feels. We’ll turn it into a short note you can read out on the phone or send with a request.</p>
+
+            <noscript><p class="brief__noscript">The brief builder needs JavaScript. You can still <a href="tel:+15555550163">call (555) 555-0163</a> or use the <a href="#request">request form</a>.</p></noscript>
+
+            <form class="brief-form" id="brief-form" novalidate>
+              <fieldset class="step">
+                <legend class="step__legend"><span class="step__num">Step 1 of 2</span> Right now, the house is…</legend>
+                <div class="answers">
+                  <label class="answer"><input type="radio" name="state" value="cooling"><span>Not cooling</span></label>
+                  <label class="answer"><input type="radio" name="state" value="heating"><span>Not heating</span></label>
+                  <label class="answer"><input type="radio" name="state" value="rooms"><span>Running, but some rooms are never right</span></label>
+                  <label class="answer"><input type="radio" name="state" value="off"><span>Working, but something seems off</span></label>
+                  <label class="answer"><input type="radio" name="state" value="planning"><span>Fine. I’m planning ahead</span></label>
+                </div>
+              </fieldset>
+
+              <div class="step step--two" id="step-two" hidden>
+                <p class="step__legend step__legend--plain"><span class="step__num">Step 2 of 2</span> A few details, if you know them. Everything here is optional.</p>
+
+                <fieldset class="group" data-show="off">
+                  <legend>What seems off?</legend>
+                  <div class="chips">
+                    <label class="chip"><input type="radio" name="offWhat" value="noise"><span>A new or loud noise</span></label>
+                    <label class="chip"><input type="radio" name="offWhat" value="water"><span>Water near the indoor unit</span></label>
+                    <label class="chip"><input type="radio" name="offWhat" value="smell"><span>A smell that isn’t gas</span></label>
+                    <label class="chip"><input type="radio" name="offWhat" value="cycling"><span>Turns on and off a lot</span></label>
+                    <label class="chip"><input type="radio" name="offWhat" value="bills"><span>Bills are up</span></label>
+                    <label class="chip"><input type="radio" name="offWhat" value="other"><span>Something else / not sure</span></label>
+                  </div>
+                </fieldset>
+
+                <fieldset class="group" data-show="planning">
+                  <legend>What are you planning?</legend>
+                  <div class="chips">
+                    <label class="chip"><input type="radio" name="plan" value="replacement"><span>Replacing the system</span></label>
+                    <label class="chip"><input type="radio" name="plan" value="heatpump"><span>A heat pump</span></label>
+                    <label class="chip"><input type="radio" name="plan" value="tuneup"><span>A tune-up</span></label>
+                    <label class="chip"><input type="radio" name="plan" value="iaq"><span>Better air quality</span></label>
+                    <label class="chip"><input type="radio" name="plan" value="thermostat"><span>A new thermostat</span></label>
+                    <label class="chip"><input type="radio" name="plan" value="notsure"><span>Not sure yet</span></label>
+                  </div>
+                </fieldset>
+
+                <fieldset class="group" data-show="cooling heating rooms off">
+                  <legend>How long has it been like this?</legend>
+                  <div class="chips">
+                    <label class="chip"><input type="radio" name="since" value="today"><span>Since today</span></label>
+                    <label class="chip"><input type="radio" name="since" value="days"><span>A few days</span></label>
+                    <label class="chip"><input type="radio" name="since" value="weeks"><span>Weeks or longer</span></label>
+                    <label class="chip"><input type="radio" name="since" value="notsure"><span>Not sure</span></label>
+                  </div>
+                </fieldset>
+
+                <fieldset class="group" data-show="cooling heating off">
+                  <legend>Anyone at home who’s especially affected by heat or cold?</legend>
+                  <p class="group__hint">Choose any that apply.</p>
+                  <div class="chips">
+                    <label class="chip chip--check"><input type="checkbox" name="people" value="children"><span>Young children</span></label>
+                    <label class="chip chip--check"><input type="checkbox" name="people" value="older"><span>Older adults</span></label>
+                    <label class="chip chip--check"><input type="checkbox" name="people" value="medical"><span>Someone with medical needs</span></label>
+                    <label class="chip chip--check"><input type="checkbox" name="people" value="pets"><span>Pets</span></label>
+                    <label class="chip chip--check"><input type="checkbox" name="people" value="none" data-exclusive><span>No one in particular</span></label>
+                  </div>
+                </fieldset>
+
+                <fieldset class="group" data-show="planning">
+                  <legend>What matters most to you?</legend>
+                  <p class="group__hint" id="priorities-hint">Choose up to two.</p>
+                  <div class="chips" data-max="2">
+                    <label class="chip chip--check"><input type="checkbox" name="priorities" value="upfront"><span>Up-front cost</span></label>
+                    <label class="chip chip--check"><input type="checkbox" name="priorities" value="bills"><span>Monthly bills</span></label>
+                    <label class="chip chip--check"><input type="checkbox" name="priorities" value="even"><span>Even comfort</span></label>
+                    <label class="chip chip--check"><input type="checkbox" name="priorities" value="quiet"><span>Quieter</span></label>
+                    <label class="chip chip--check"><input type="checkbox" name="priorities" value="air"><span>Air quality</span></label>
+                    <label class="chip chip--check"><input type="checkbox" name="priorities" value="reliable"><span>Fewer breakdowns</span></label>
+                  </div>
+                  <p class="group__limit" data-limit-note hidden>That’s two. Clear one to choose another.</p>
+                </fieldset>
+
+                <fieldset class="group" data-show="cooling heating rooms off planning">
+                  <legend>What kind of system, if you know?</legend>
+                  <div class="chips">
+                    <label class="chip"><input type="radio" name="system" value="furnace"><span>Furnace and AC</span></label>
+                    <label class="chip"><input type="radio" name="system" value="heatpump"><span>Heat pump</span></label>
+                    <label class="chip"><input type="radio" name="system" value="boiler"><span>Boiler</span></label>
+                    <label class="chip"><input type="radio" name="system" value="notsure"><span>Not sure</span></label>
+                  </div>
+                </fieldset>
+
+                <fieldset class="group" data-show="cooling heating rooms off planning">
+                  <legend>Roughly how old, if you know?</legend>
+                  <div class="chips">
+                    <label class="chip"><input type="radio" name="age" value="under10"><span>Under 10 years</span></label>
+                    <label class="chip"><input type="radio" name="age" value="10to15"><span>10–15 years</span></label>
+                    <label class="chip"><input type="radio" name="age" value="over15"><span>Over 15 years</span></label>
+                    <label class="chip"><input type="radio" name="age" value="notsure"><span>Not sure</span></label>
+                  </div>
+                </fieldset>
+
+                <fieldset class="group" data-show="cooling heating off planning">
+                  <legend>Has it needed repairs recently?</legend>
+                  <div class="chips">
+                    <label class="chip"><input type="radio" name="repairs" value="no"><span>No</span></label>
+                    <label class="chip"><input type="radio" name="repairs" value="once"><span>Once</span></label>
+                    <label class="chip"><input type="radio" name="repairs" value="more"><span>More than once</span></label>
+                    <label class="chip"><input type="radio" name="repairs" value="notsure"><span>Not sure</span></label>
+                  </div>
+                </fieldset>
+
+                <fieldset class="group" data-show="cooling heating rooms off">
+                  <legend>Anything you’ve already checked?</legend>
+                  <p class="group__hint">Only simple checks. Please don’t open panels or touch wiring, gas or refrigerant lines.</p>
+                  <div class="chips">
+                    <label class="chip chip--check"><input type="checkbox" name="checks" value="mode"><span>Thermostat mode and setting</span></label>
+                    <label class="chip chip--check"><input type="checkbox" name="checks" value="power"><span>Thermostat has power or new batteries</span></label>
+                    <label class="chip chip--check"><input type="checkbox" name="checks" value="vents"><span>Vents and returns are open</span></label>
+                    <label class="chip chip--check"><input type="checkbox" name="checks" value="filter"><span>Looked at the filter</span></label>
+                    <label class="chip chip--check"><input type="checkbox" name="checks" value="breaker"><span>Noticed a tripped breaker and left it</span></label>
+                    <label class="chip chip--check"><input type="checkbox" name="checks" value="none" data-exclusive><span>Nothing yet</span></label>
+                  </div>
+                </fieldset>
+
+                <p class="brief__jump"><a href="#slip">See your brief<svg class="icon" aria-hidden="true"><use href="#i-down"/></svg></a></p>
+                <button type="reset" class="text-button">Start over</button>
+              </div>
+            </form>
+          </div>
+
+          <aside class="brief__slip-col" aria-labelledby="slip-title">
+            <article class="slip" id="slip" tabindex="-1">
+              <p class="slip__print-id">Wren Heating &amp; Air · Comfort brief · (555) 555-0163 · Portfolio demo: a fictional company</p>
+              <header class="slip__head">
+                <h3 id="slip-title" class="slip__title">Your comfort brief</h3>
+                <p class="slip__sub">Fills in as you answer.</p>
+              </header>
+
+              <p class="slip__empty" data-slip-empty>Start with step 1. Your answers will appear here in plain words.</p>
+
+              <div class="slip__next" data-slip-next hidden>
+                <h4 class="slip__next-title">Next step</h4>
+                <p class="slip__next-text" data-next-text></p>
+                <p class="slip__care" data-next-care hidden></p>
+                <div class="slip__next-action" data-next-action></div>
+              </div>
+
+              <div class="slip__told" data-slip-told hidden>
+                <h4 class="slip__told-title">What you’ve told us</h4>
+                <dl class="slip__lines" data-slip-lines></dl>
+                <p class="slip__skipped" data-slip-skipped hidden></p>
+              </div>
+
+              <div class="slip__questions" data-slip-questions hidden>
+                <h4>Questions worth asking at the visit</h4>
+                <ul>
+                  <li>What would repairing it cost, next to replacing it?</li>
+                  <li>What size system does the house need, and how was that worked out?</li>
+                  <li>Is a heat pump a sensible option for this house?</li>
+                  <li>What’s the timeline, and what happens on install day?</li>
+                </ul>
+              </div>
+
+              <div class="slip__actions" data-slip-actions hidden>
+                <button type="button" class="slip-action" data-action="send"><svg class="icon" aria-hidden="true"><use href="#i-send"/></svg><span>Send with a request</span></button>
+                <button type="button" class="slip-action" data-action="copy"><svg class="icon" aria-hidden="true"><use href="#i-copy"/></svg><span>Copy</span></button>
+                <button type="button" class="slip-action" data-action="print"><svg class="icon" aria-hidden="true"><use href="#i-print"/></svg><span>Print</span></button>
+              </div>
+
+              <p class="slip__disclaimer">This is general guidance from a fictional demo company, not a diagnosis, and nothing here is sent anywhere.</p>
+            </article>
+            <p class="visually-hidden" role="status" aria-live="polite" data-brief-status></p>
+          </aside>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- ============ SERVICES: an agenda, by tense ============ -->
+  <section class="band band--cool services" id="services" aria-labelledby="services-title">
+    <div class="wrap">
+      <h2 id="services-title" class="section-title">What we help with</h2>
+      <p class="section-lead">Two kinds of work: the kind that can’t wait, and the kind worth taking your time over.</p>
+
+      <div class="agenda-grid">
+        <div class="agenda agenda--today">
+          <h3 class="agenda__title">
+            <span class="ringed ringed--small">
+              <svg class="ring" aria-hidden="true" preserveAspectRatio="none"><use href="#i-ring"/></svg>
+              <span>Today</span>
+            </span>
+          </h3>
+          <ul class="agenda__list" data-season-sort>
+            <li class="agenda__row" data-order-warm="1" data-order-cold="2">
+              <div>
+                <h4>The AC stopped cooling</h4>
+                <p>AC repair. Warm air from the vents, the outdoor unit silent, or the house climbing past the setting.</p>
+              </div>
+              <a class="row-action row-action--pen" href="tel:+15555550163" aria-label="Call about AC repair, (555) 555-0163"><svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg>Call</a>
+            </li>
+            <li class="agenda__row" data-order-warm="2" data-order-cold="1">
+              <div>
+                <h4>The heat won’t come on</h4>
+                <p>Heating and furnace repair. No heat, cold air from the vents, or a system that starts and quits.</p>
+              </div>
+              <a class="row-action row-action--pen" href="tel:+15555550163" aria-label="Call about heating repair, (555) 555-0163"><svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg>Call</a>
+            </li>
+            <li class="agenda__row" data-order-warm="3" data-order-cold="3">
+              <div>
+                <h4>Something’s not right</h4>
+                <p>Troubleshooting for new noises, weak airflow, odd smells that aren’t gas, water near the indoor unit, or constant cycling.</p>
+              </div>
+              <a class="row-action row-action--pen" href="tel:+15555550163" aria-label="Call about troubleshooting, (555) 555-0163"><svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg>Call</a>
+            </li>
+          </ul>
+
+          <div class="when-you-call">
+            <h4>What happens when you call <span class="tag">Sample</span></h4>
+            <ol>
+              <li>A person answers and asks what the house is doing, not what part is broken.</li>
+              <li>They ask who’s at home and whether anything seems unsafe.</li>
+              <li>You agree a visit. We tell you who’s coming and roughly when.</li>
+              <li>The technician explains what they found, in plain words, before any work starts.</li>
+            </ol>
+          </div>
+        </div>
+
+        <div class="agenda agenda--later">
+          <h3 class="agenda__title agenda__title--pencil">On your calendar</h3>
+          <ul class="agenda__list">
+            <li class="agenda__row">
+              <div>
+                <h4>Replacing the system, or a heat pump</h4>
+                <p>An old system, repeated repairs or a big repair quote. We lay out repair and replacement side by side.</p>
+              </div>
+              <a class="row-action" href="#replacement">How it works</a>
+            </li>
+            <li class="agenda__row">
+              <div>
+                <h4>Seasonal tune-ups</h4>
+                <p>A check before the cooling season and before the heating season.</p>
+              </div>
+              <a class="row-action" href="#tune-ups">When to book</a>
+            </li>
+            <li class="agenda__row">
+              <div>
+                <h4>Air that feels dusty, dry or stuffy</h4>
+                <p>Indoor air quality and filtration, explained without the gadget talk.</p>
+              </div>
+              <a class="row-action" href="#request" data-need="iaq">Request a visit</a>
+            </li>
+            <li class="agenda__row">
+              <div>
+                <h4>Thermostats and controls</h4>
+                <p>Replacing a thermostat, or getting one room to stop fighting the rest of the house.</p>
+              </div>
+              <a class="row-action" href="#request" data-need="thermostat">Request a visit</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SAFETY ============ -->
+  <section class="band band--ink safety" id="safety" aria-labelledby="safety-title">
+    <div class="wrap">
+      <h2 id="safety-title" class="section-title">If something seems unsafe</h2>
+      <p class="section-lead">Get people safe first. The system can wait.</p>
+
+      <ol class="safety-steps">
+        <li>
+          <h3>Smell of gas</h3>
+          <p>Leave the home now. Don’t switch lights or appliances on or off, don’t use flames, and don’t use a phone inside. From outside and away from the house, call the <strong>gas utility’s emergency line or 911</strong>. Only then contact an HVAC company.</p>
+        </li>
+        <li>
+          <h3>Carbon monoxide alarm, or people feeling unwell while heating is running</h3>
+          <p>Headache, dizziness or nausea count. Get everyone, including pets, outside into fresh air. Call <strong>911</strong>. Don’t go back in until emergency responders say it’s safe. Then contact an HVAC company.</p>
+        </li>
+        <li>
+          <h3>Smoke, burning smell, fire, or sparking from equipment</h3>
+          <p>Leave the home and call <strong>911</strong>. Then contact an HVAC company.</p>
+        </li>
+        <li>
+          <h3>Anyone becoming unwell from heat or cold</h3>
+          <p>Get them to a cooler or warmer safe place and <strong>contact medical help or 911</strong> as needed. Then call about the system.</p>
+        </li>
+      </ol>
+
+      <div class="safety-cols">
+        <div>
+          <h3>Safe to check</h3>
+          <ul>
+            <li>The thermostat is set to the right mode (heat or cool) and a sensible temperature.</li>
+            <li>The thermostat has power, or fresh batteries if it uses them.</li>
+            <li>Vents and return grilles in the home aren’t closed or blocked.</li>
+            <li>If you normally change your own filter, whether it looks clogged.</li>
+            <li>Whether a breaker has tripped. Note it and tell the technician. Don’t keep resetting it.</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Please leave to a professional</h3>
+          <ul>
+            <li>Anything involving gas lines, gas valves, burners, pilot lights or combustion equipment.</li>
+            <li>Opening equipment panels, or touching wiring or electrical parts inside.</li>
+            <li>Anything to do with refrigerant or refrigerant lines, including “topping up”.</li>
+            <li>Chipping or melting ice off coils or lines.</li>
+            <li>Restarting or resetting equipment again and again after it shuts itself off.</li>
+          </ul>
+        </div>
+        <div>
+          <h3>In very hot or cold weather</h3>
+          <ul>
+            <li>Never use an oven, stove, grill, camp heater or generator indoors for heat.</li>
+            <li>Keep portable heaters clear of anything that can burn, and follow the maker’s instructions.</li>
+            <li>When it’s hot: use the coolest room, keep blinds closed, drink water, and go somewhere cool if the house can’t be made safe.</li>
+          </ul>
+        </div>
+      </div>
+      <p class="fine">General safety guidance for a fictional demo company. It isn’t professional advice and doesn’t diagnose anything.</p>
+    </div>
+  </section>
+
+  <!-- ============ REPLACEMENT ============ -->
+  <section class="band band--paper replacement" id="replacement" aria-labelledby="replacement-title">
+    <div class="wrap">
+      <h2 id="replacement-title" class="section-title">A replacement, one step at a time</h2>
+      <p class="section-lead">A new system is a big decision. Here’s what it looks like with us, from the first visit to afterward.</p>
+
+      <ol class="week-strip">
+        <li class="day">
+          <span class="day__num" aria-hidden="true">1</span>
+          <h3 class="day__title"><span class="visually-hidden">Step 1: </span>A visit</h3>
+          <p>We look at the house, the system and what’s been bothering you.</p>
+        </li>
+        <li class="day">
+          <span class="day__num" aria-hidden="true">2</span>
+          <h3 class="day__title"><span class="visually-hidden">Step 2: </span>Options on paper</h3>
+          <p>Repair, like-for-like replacement, a heat pump, or a combination. Each is explained plainly, with the repair option alongside.</p>
+        </li>
+        <li class="day day--blank">
+          <span class="day__num" aria-hidden="true">3</span>
+          <h3 class="day__title"><span class="visually-hidden">Step 3: </span>Your decision</h3>
+          <p class="day__pencil">Take the time you need. No deadline from us. <span class="tag">Sample commitment</span></p>
+        </li>
+        <li class="day">
+          <span class="day__num" aria-hidden="true">4</span>
+          <h3 class="day__title"><span class="visually-hidden">Step 4: </span>Install day</h3>
+          <p>What happens, in order, and when the house will be comfortable again.</p>
+        </li>
+        <li class="day">
+          <span class="day__num" aria-hidden="true">5</span>
+          <h3 class="day__title"><span class="visually-hidden">Step 5: </span>Afterward</h3>
+          <p>We check in, and show you how the new system and thermostat work.</p>
+        </li>
+      </ol>
+      <p class="fine fine--dark">Sample sequence for a demo company. Real timing varies from house to house.</p>
+
+      <div class="promise">
+        <p class="promise__text">We’ll show you the repair option next to any replacement option.</p>
+        <span class="tag">Sample company commitment</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="band band--cool heat-pumps" id="heat-pumps" aria-labelledby="heat-pumps-title">
+    <div class="wrap heat-pumps__grid">
+      <div class="heat-pumps__text">
+        <h2 id="heat-pumps-title" class="section-title section-title--sub">Is a heat pump a sensible option for this house?</h2>
+        <p>A heat pump heats and cools with one system, moving heat into the house in winter and out of it in summer. Whether it suits your home depends on the house itself: its size, insulation, existing ductwork and what heats it now. Some homes use a heat pump on its own. Others pair it with a furnace for the coldest days.</p>
+        <p>We’ll explain which options fit your house and why, and we’ll include the repair option if the current system is worth fixing.</p>
+        <div class="cta-row">
+          <a class="btn btn--pen" href="#request" data-need="replacement">Request an estimate conversation</a>
+          <p class="cta-alt">or call <a href="tel:+15555550163">(555) 555-0163</a></p>
+        </div>
+      </div>
+      <div class="checklist">
+        <h3>Questions worth asking any company</h3>
+        <ul>
+          <li>What would repairing it cost, next to replacing it?</li>
+          <li>What size system does the house need, and how was that worked out?</li>
+          <li>Is a heat pump a sensible option for this house?</li>
+          <li>What’s the timeline, and what happens on install day?</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ TUNE-UPS: the year strip ============ -->
+  <section class="band band--paper tune-ups" id="tune-ups" aria-labelledby="tune-ups-title">
+    <div class="wrap">
+      <h2 id="tune-ups-title" class="section-title">Two good times a year</h2>
+      <p class="section-lead">Before the cooling season and before the heating season. A tune-up then means the system is checked before you need it most.</p>
+
+      <ol class="year-strip" aria-describedby="year-strip-text">
+        <li class="month month--cold"><span aria-hidden="true">J</span><span class="visually-hidden">January, cold season</span></li>
+        <li class="month month--cold"><span aria-hidden="true">F</span><span class="visually-hidden">February, cold season</span></li>
+        <li class="month month--cold"><span aria-hidden="true">M</span><span class="visually-hidden">March, cold season</span></li>
+        <li class="month month--tune"><span aria-hidden="true">A</span><span class="month__note" aria-hidden="true">Tune-up</span><span class="visually-hidden">April, tune-up window before the cooling season</span></li>
+        <li class="month month--warm"><span aria-hidden="true">M</span><span class="visually-hidden">May, warm season</span></li>
+        <li class="month month--warm"><span aria-hidden="true">J</span><span class="visually-hidden">June, warm season</span></li>
+        <li class="month month--warm"><span aria-hidden="true">J</span><span class="visually-hidden">July, warm season</span></li>
+        <li class="month month--warm"><span aria-hidden="true">A</span><span class="visually-hidden">August, warm season</span></li>
+        <li class="month month--warm"><span aria-hidden="true">S</span><span class="visually-hidden">September, warm season</span></li>
+        <li class="month month--tune"><span aria-hidden="true">O</span><span class="month__note" aria-hidden="true">Tune-up</span><span class="visually-hidden">October, tune-up window before the heating season</span></li>
+        <li class="month month--cold"><span aria-hidden="true">N</span><span class="visually-hidden">November, cold season</span></li>
+        <li class="month month--cold"><span aria-hidden="true">D</span><span class="visually-hidden">December, cold season</span></li>
+      </ol>
+      <p class="visually-hidden" id="year-strip-text">Tune-ups are best in spring, before the cooling season, and in fall, before the heating season.</p>
+
+      <div class="tune-ups__grid">
+        <div>
+          <p class="next-tune">
+            <span class="for-warm"><strong>Next up: a heating tune-up in the fall</strong>, before the first cold night.</span>
+            <span class="for-cold"><strong>Next up: a cooling tune-up in the spring</strong>, before the first hot week.</span>
+          </p>
+          <div class="cta-row">
+            <a class="btn btn--pen" href="#request" data-need="tuneup">Request a tune-up</a>
+            <p class="cta-alt">or call <a href="tel:+15555550163">(555) 555-0163</a></p>
+          </div>
+        </div>
+        <div class="plan-note">
+          <h3>Maintenance plans <span class="tag">Sample</span></h3>
+          <p>A real company would describe its plan here: how many visits a year, what each visit includes, and any priority scheduling it actually offers. No prices or perks are shown in this demo.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SAMPLE REVIEWS ============ -->
+  <section class="band band--warm reviews" id="reviews" aria-labelledby="reviews-title">
+    <div class="wrap">
+      <h2 id="reviews-title" class="section-title">Sample reviews</h2>
+      <p class="section-lead">Written for this demo to show where real reviews would go. They aren’t from real customers.</p>
+      <div class="review-list">
+        <figure class="review">
+          <blockquote><p>“The heat quit on the coldest night of the year. The person on the phone asked about my mother before she asked about the furnace.”</p></blockquote>
+          <figcaption><span>Dana R., North Sayer</span> <span class="tag">Sample review</span></figcaption>
+        </figure>
+        <figure class="review">
+          <blockquote><p>“We expected a hard sell on a new system. We got the repair price and the replacement price on one page, and a week to think.”</p></blockquote>
+          <figcaption><span>Marcus T., Oriel Springs</span> <span class="tag">Sample review</span></figcaption>
+        </figure>
+        <figure class="review">
+          <blockquote><p>“Our upstairs was always four degrees warmer than downstairs. They explained why in plain English and fixed what could be fixed.”</p></blockquote>
+          <figcaption><span>Priya S., Cutler’s Bend</span> <span class="tag">Sample review</span></figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SERVICE AREA ============ -->
+  <section class="band band--paper area" id="area" aria-labelledby="area-title">
+    <div class="wrap area__grid">
+      <div>
+        <h2 id="area-title" class="section-title">Pellam County</h2>
+        <p class="section-lead">Homes across the county, from town streets to the farm roads.</p>
+        <p class="fine fine--dark">All place names are fictional.</p>
+      </div>
+      <div>
+        <ul class="towns">
+          <li>Pellam</li>
+          <li>Oriel Springs</li>
+          <li>North Sayer</li>
+          <li>Cutler’s Bend</li>
+        </ul>
+        <p class="area__ask">Somewhere else nearby? <a href="tel:+15555550163">Ask us.</a></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FAQ ============ -->
+  <section class="band band--cool faq" id="faq" aria-labelledby="faq-title">
+    <div class="wrap faq__grid">
+      <h2 id="faq-title" class="section-title">Questions</h2>
+      <div class="faq__list" data-season-sort>
+        <details class="faq__item" data-order-warm="1" data-order-cold="4">
+          <summary>The AC is running, but the house isn’t cooling. What should I do?<span class="faq__mark" aria-hidden="true"><svg class="icon icon--plus"><use href="#i-plus"/></svg><svg class="icon icon--minus"><use href="#i-minus"/></svg></span></summary>
+          <div class="faq__body">
+            <p>Check that the thermostat is set to cool and a sensible temperature, that it has power, and that vents aren’t blocked. If that doesn’t help, call us and describe what you’re noticing. If you see ice or water on the equipment, don’t chip or clear it. Just tell the technician.</p>
+          </div>
+        </details>
+        <details class="faq__item" data-order-warm="4" data-order-cold="1">
+          <summary>The heat won’t come on. Can I reset the furnace?<span class="faq__mark" aria-hidden="true"><svg class="icon icon--plus"><use href="#i-plus"/></svg><svg class="icon icon--minus"><use href="#i-minus"/></svg></span></summary>
+          <div class="faq__body">
+            <p>Please don’t restart or reset equipment again and again after it shuts itself off, and never work on gas parts or open panels. Check the thermostat’s mode, setting and power, then call us. If you smell gas, leave the home first and call your gas utility or 911 from outside.</p>
+          </div>
+        </details>
+        <details class="faq__item" data-order-warm="5" data-order-cold="2">
+          <summary>Do heat pumps work when it’s really cold?<span class="faq__mark" aria-hidden="true"><svg class="icon icon--plus"><use href="#i-plus"/></svg><svg class="icon icon--minus"><use href="#i-minus"/></svg></span></summary>
+          <div class="faq__body">
+            <p>Many current heat pumps are designed to keep heating in cold weather. How well one suits your home depends on the model, the house and the local climate. Some homes pair a heat pump with a furnace for the coldest days. We’ll explain what makes sense for your house rather than promise numbers.</p>
+          </div>
+        </details>
+        <details class="faq__item" data-order-warm="2" data-order-cold="3">
+          <summary>How often should the system be maintained?<span class="faq__mark" aria-hidden="true"><svg class="icon icon--plus"><use href="#i-plus"/></svg><svg class="icon icon--minus"><use href="#i-minus"/></svg></span></summary>
+          <div class="faq__body">
+            <p>Many homeowners schedule a check before the cooling season and another before the heating season. Your equipment maker’s guidance comes first. Changing a standard filter regularly is something many people do themselves.</p>
+          </div>
+        </details>
+        <details class="faq__item" data-order-warm="3" data-order-cold="5">
+          <summary>What should I do before the technician arrives?<span class="faq__mark" aria-hidden="true"><svg class="icon icon--plus"><use href="#i-plus"/></svg><svg class="icon icon--minus"><use href="#i-minus"/></svg></span></summary>
+          <div class="faq__body">
+            <p>Clear a path to the indoor and outdoor equipment, note what you noticed and when, and have your comfort brief handy if you made one. Please don’t open panels or try repairs.</p>
+          </div>
+        </details>
+        <details class="faq__item" data-order-warm="6" data-order-cold="6">
+          <summary>How much will a repair or a new system cost?<span class="faq__mark" aria-hidden="true"><svg class="icon icon--plus"><use href="#i-plus"/></svg><svg class="icon icon--minus"><use href="#i-minus"/></svg></span></summary>
+          <div class="faq__body">
+            <p>This demo doesn’t show prices. A real company would explain its pricing and estimate policy here, including whether it charges for a diagnostic visit, and would confirm it before any work starts.</p>
+          </div>
+        </details>
+        <details class="faq__item" data-order-warm="7" data-order-cold="7">
+          <summary>Do you offer financing, or help with rebates?<span class="faq__mark" aria-hidden="true"><svg class="icon icon--plus"><use href="#i-plus"/></svg><svg class="icon icon--minus"><use href="#i-minus"/></svg></span></summary>
+          <div class="faq__body">
+            <p>A real company would list its financing options and current local rebate programs here. Programs change, so confirm details directly. This demo makes no financing or rebate offers.</p>
+          </div>
+        </details>
+        <details class="faq__item" data-order-warm="8" data-order-cold="8">
+          <summary>Do you work on boilers?<span class="faq__mark" aria-hidden="true"><svg class="icon icon--plus"><use href="#i-plus"/></svg><svg class="icon icon--minus"><use href="#i-minus"/></svg></span></summary>
+          <div class="faq__body">
+            <p>This demo focuses on furnaces, air conditioners and heat pumps. A real company would say here which boiler and hot-water heating work it takes on.</p>
+          </div>
+        </details>
+        <details class="faq__item" data-order-warm="9" data-order-cold="9">
+          <summary>Is Wren Heating &amp; Air a real company?<span class="faq__mark" aria-hidden="true"><svg class="icon icon--plus"><use href="#i-plus"/></svg><svg class="icon icon--minus"><use href="#i-minus"/></svg></span></summary>
+          <div class="faq__body">
+            <p>No. Wren is a fictional company made for a web design portfolio. Pellam County and its towns are fictional. The phone number is a reserved sample number, the reviews are samples, and the forms send nothing.</p>
+          </div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ REQUEST FORM ============ -->
+  <section class="band band--paper request" id="request" aria-labelledby="request-title" tabindex="-1">
+    <div class="wrap request__grid">
+      <div class="request__intro">
+        <h2 id="request-title" class="section-title" data-request-title>Request a visit</h2>
+        <p class="section-lead">Tell us a little and we’ll call you back to arrange a time. This asks for a visit. It doesn’t book one.</p>
+        <p class="request__urgent">No heat or no cooling right now? Calling is fastest: <a href="tel:+15555550163">(555) 555-0163</a>.</p>
+      </div>
+
+      <div class="request__panel">
+        <form class="request-form" id="request-form" novalidate>
+          <p class="form-errors" data-form-errors role="alert" hidden></p>
+
+          <div class="field">
+            <label for="f-name">Your name</label>
+            <input id="f-name" name="name" type="text" autocomplete="name" required aria-required="true">
+            <p class="field__error" id="f-name-error" hidden></p>
+          </div>
+
+          <div class="field">
+            <label for="f-phone">Phone</label>
+            <input id="f-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" required aria-required="true">
+            <p class="field__error" id="f-phone-error" hidden></p>
+          </div>
+
+          <div class="field">
+            <label for="f-need">What do you need?</label>
+            <select id="f-need" name="need" required aria-required="true">
+              <option value="">Choose one</option>
+              <option value="no-cooling">No cooling</option>
+              <option value="no-heat">No heat</option>
+              <option value="off">Something seems off</option>
+              <option value="rooms">Some rooms are uncomfortable</option>
+              <option value="tuneup">A tune-up</option>
+              <option value="replacement">Replacement or heat pump estimate</option>
+              <option value="iaq">Air quality</option>
+              <option value="thermostat">Thermostat</option>
+              <option value="other">Something else</option>
+            </select>
+            <p class="field__error" id="f-need-error" hidden></p>
+            <p class="urgent-note" data-urgent-note hidden>
+              <svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg>
+              <span>For no heat or no cooling, calling is fastest: <a href="tel:+15555550163">(555) 555-0163</a>. You can still send this too.</span>
+            </p>
+          </div>
+
+          <div class="field">
+            <label for="f-town">Town</label>
+            <select id="f-town" name="town" autocomplete="address-level2">
+              <option>Pellam</option>
+              <option>Oriel Springs</option>
+              <option>North Sayer</option>
+              <option>Cutler’s Bend</option>
+              <option>Somewhere else / not sure</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="f-email">Email <span class="optional">(optional)</span></label>
+            <input id="f-email" name="email" type="email" autocomplete="email">
+            <p class="field__error" id="f-email-error" hidden></p>
+          </div>
+
+          <div class="field">
+            <label for="f-time">Best time to reach you <span class="optional">(optional)</span></label>
+            <select id="f-time" name="time">
+              <option>Any time</option>
+              <option>Morning</option>
+              <option>Afternoon</option>
+              <option>Evening</option>
+            </select>
+          </div>
+
+          <div class="field field--wide">
+            <label for="f-system">System type and rough age <span class="optional">(optional)</span></label>
+            <input id="f-system" name="system" type="text" placeholder="For example: furnace and AC, about 12 years. Or not sure." autocomplete="off">
+          </div>
+
+          <div class="field field--wide">
+            <label for="f-details">Details <span class="optional">(optional)</span></label>
+            <textarea id="f-details" name="details" rows="5"></textarea>
+            <p class="field__hint" data-brief-attached hidden>Your comfort brief was added here. You can edit it.</p>
+          </div>
+
+          <p class="demo-note field--wide">
+            <strong>This is a portfolio demo.</strong> Nothing you enter is sent anywhere.
+          </p>
+
+          <div class="field--wide">
+            <button type="submit" class="btn btn--pen btn--submit">Request a visit</button>
+          </div>
+        </form>
+
+        <div class="done slip" data-form-done hidden tabindex="-1">
+          <h3 class="slip__title">Request noted, but not sent</h3>
+          <p>This is a portfolio demo, so nothing was sent and no one will call. A real Wren site would pass this to the office.</p>
+          <p>Anything urgent? <a href="tel:+15555550163">Call (555) 555-0163</a>.</p>
+          <button type="button" class="text-button" data-form-reset>Start a new request</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="wrap footer__grid">
+    <div class="footer__brand">
+      <p class="wordmark wordmark--footer"><span class="wordmark__name">Wren</span> <span class="wordmark__trade">Heating &amp; Air</span></p>
+      <p>Residential heating and air for Pellam County.</p>
+      <p class="footer__line">Quick when it can’t wait. Clear when it can.</p>
+    </div>
+    <div>
+      <h2 class="footer__h">Contact <span class="tag">Sample</span></h2>
+      <p><a href="tel:+15555550163">(555) 555-0163</a><br><a href="mailto:hello@wren.example">hello@wren.example</a></p>
+      <p>Hours: shown here for a real company.<br>Sample: weekdays 7 am to 6 pm.</p>
+      <p>Licence: SAMPLE-0000</p>
+    </div>
+    <div>
+      <h2 class="footer__h">Service area</h2>
+      <p>Pellam · Oriel Springs · North Sayer · Cutler’s Bend</p>
+      <h2 class="footer__h">On this page</h2>
+      <ul class="footer__nav">
+        <li><a href="#services">Services</a></li>
+        <li><a href="#safety">Safety</a></li>
+        <li><a href="#replacement">Replacement</a></li>
+        <li><a href="#tune-ups">Tune-ups</a></li>
+        <li><a href="#request">Request a visit</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap">
+    <div class="footer__fine"><p>Wren Heating &amp; Air is a fictional company created for a web design portfolio. It isn’t a real business. Pellam County, its towns, the phone number, email, licence number, hours and reviews are all sample content. Nothing on this site is sent anywhere, and its safety content is general guidance, not professional advice.</p></div>
+  </div>
+</footer>
+
+<nav class="action-bar" aria-label="Quick actions">
+  <a class="btn btn--bar-pen" href="tel:+15555550163">
+    <svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg>
+    <span>Call</span>
+  </a>
+  <a class="btn btn--bar-pencil" href="#request" data-need="">Request a visit</a>
+</nav>
+
+<script src="js/main.js" defer></script>
+</body>
+</html>
